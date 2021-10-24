@@ -861,15 +861,17 @@ function generateKeys(keyByte){
 }  
 """
 
+
 def GetRSA(username, password):
-	import execjs
-	# 获取 des.js 里的内容
-	# with open(sys.path[0] + '/data/des.js') as f:
-	# 	line = f.readline()
-	# 	jsstr = ''
-	# 	while line:
-	# 		jsstr = jsstr + line
-	# 		line = f.readline()
-	desJS = execjs.compile(desCode)
-	# 调用 strEnc 函数实现 rsa 加密
-	return desJS.call('strEnc', username + password, '1', '2', '3')
+    import execjs
+
+    # 获取 des.js 里的内容
+    # with open(sys.path[0] + '/data/des.js') as f:
+    # 	line = f.readline()
+    # 	jsstr = ''
+    # 	while line:
+    # 		jsstr = jsstr + line
+    # 		line = f.readline()
+    desJS = execjs.compile(desCode)
+    # 调用 strEnc 函数实现 rsa 加密
+    return desJS.call("strEnc", username + password, "1", "2", "3")
